@@ -20,44 +20,44 @@ public:
 
 
 	// constructor(s) / destructor
-	Vector3() { u = Utility::getInstance(); };
-	Vector3(double xx, double yy, double zz) : x(xx), y(yy), z(zz) { u = Utility::getInstance(); };
-	~Vector3() { delete u; };
+	Vector3() {};
+	Vector3(double xx, double yy, double zz) : x(xx), y(yy), z(zz) {};
+	~Vector3() {};
 
 	// methods - accessors and mutators
-	inline double getX() { return x; }
+	inline double getX() const { return x; }
 	inline void setX(double xx) { x = xx; }
-	inline double getY() { return y; }
+	inline double getY() const { return y; }
 	inline void setY(double yy) { y = yy; }
-	inline double getZ() { return z; }
+	inline double getZ() const { return z; }
 	inline void setZ(double zz) { z = zz; }
 
 	// methods - math functions that will do cooler things
 	// these methods' functionality are briefly explained in Vector2.cpp
-	inline Vector3 add(const Vector3&);
-	inline Vector3 add(double, double, double);
-	inline Vector3 sub(const Vector3&);
-	inline Vector3 sub(double, double, double);
-	Vector3 scalarMultiplication(double);
-	Vector3 normalize();
-	Vector3 rotateVector(double);
+	inline Vector3 add(const Vector3&) const;
+	inline Vector3 add(double, double, double) const;
+	inline Vector3 sub(const Vector3&) const;
+	inline Vector3 sub(double, double, double) const;
+	Vector3 scalarMultiplication(double) const;
+	Vector3 normalize() const;
+	Vector3 rotateVector(double) const;
 
+	inline double dotProduct(const Vector3& const) const;
+	double getAngleBetweenVector(Vector3&) const;
+	double mag() const;
+	double discriminant() const;
+	double getRoot() const;
+	double vectorSquared() const;
+	double max() const;
 
-	inline double dotProduct(const Vector3& const);
-	double getAngleBetweenVector(Vector3&);
-	double mag();
-	double discriminant();
-	double getRoot();
-	double vectorSquared();
-	double max();
-
-
-	const Vector3 operator+(const Vector3& const v) { return Vector3(this->x + v.x, this->y + v.y, this->z + v.z); }
-	const Vector3 operator-(const Vector3& const v) { return Vector3(this->x - v.x, this->y - v.y, this->z - v.z); }
+	const Vector3 operator+(const Vector3& const v) const { return Vector3(this->x + v.x, this->y + v.y, this->z + v.z); }
+	const Vector3 operator-(const Vector3& const v) const { return Vector3(this->x - v.x, this->y - v.y, this->z - v.z); }
+	//const Vector3 operator*(const Vector3& const v) { return Vector3(this->x * v.x, this->y * v.y, this->z * v.z); }
+	//const Vector3 operator/(const Vector3& const v) { return Vector3(this->x / v.x, this->y / v.y, this->z / v.z); }
 
 	// other useful methods that don't deal with math
-	const inline void display() { cout << "X = " << x << ", Y = " << y << ", Z = " << z << endl; };
-	inline void toString() { cout << ""; }
+	const inline void display() const { cout << "X = " << x << ", Y = " << y << ", Z = " << z << endl; };
+	inline void toString() const { cout << ""; }
 
 	/*
 	Vector2 getRoots(const Vector3& const);
@@ -78,7 +78,6 @@ public:
 
 private:
 	// variables
-	Utility *u;
 	double x, y, z;
 
 	// constructor(s) / destructor

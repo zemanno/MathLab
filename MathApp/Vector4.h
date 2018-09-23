@@ -25,33 +25,33 @@ public:
 	~Vector4() {};
 
 	// methods - accessors and mutators
-	inline double getW() { return w; }
+	inline double getW() const { return w; }
 	inline void setW(double ww) { w = ww; }
-	inline double getX() { return x; }
+	inline double getX() const { return x; }
 	inline void setX(double xx) { x = xx; }
-	inline double getY() { return y; }
+	inline double getY() const { return y; }
 	inline void setY(double yy) { y = yy; }
-	inline double getZ() { return z; }
+	inline double getZ() const { return z; }
 	inline void setZ(double zz) { z = zz; }
 
 	// methods - math functions that will do cooler things
 	// these methods' functionality are briefly explained in Vector2.cpp
-	inline Vector4 add(const Vector4&);
-	inline Vector4 add(double, double, double, double);
-	inline Vector4 sub(const Vector4&);
-	inline Vector4 sub(double, double, double, double);
-	Vector4 scalarMultiplication(double);
-	double getMagnitude();
-	Vector4 normalize();
-	double getDotProduct(const Vector4&);
-	Vector4 rotateVector(double);
+	inline Vector4 add(const Vector4&) const;
+	inline Vector4 add(double, double, double, double) const;
+	inline Vector4 sub(const Vector4&) const;
+	inline Vector4 sub(double, double, double, double) const;
+	Vector4 scalarMultiplication(double) const;
+	double getMagnitude() const;
+	Vector4 normalize() const;
+	double getDotProduct(const Vector4&) const;
+	Vector4 rotateVector(double) const;
 
-	Vector4 operator+(const Vector4& v) { return Vector4(this->w + v.w, this->x + v.x, this->y + v.y, this->z + v.z); }
-	Vector4 operator-(const Vector4& v) { return Vector4(this->w - v.w, this->x - v.x, this->y - v.y, this->z - v.z); }
+	Vector4 operator+(const Vector4& v) const { return Vector4(this->w + v.w, this->x + v.x, this->y + v.y, this->z + v.z); }
+	Vector4 operator-(const Vector4& v) const { return Vector4(this->w - v.w, this->x - v.x, this->y - v.y, this->z - v.z); }
 
 	// other useful methods that don't deal with math
-	inline void display();
-	inline void toString() { cout << ""; }
+	const inline void display() const { cout << "X = " << x << ", Y = " << y << ", Z = " << z << endl; }; // PUT IN 'W'
+	inline void toString() const { cout << ""; }
 
 private:
 	// variables
