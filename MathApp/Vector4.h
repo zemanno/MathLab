@@ -41,16 +41,16 @@ public:
 	inline Vector4 sub(const Vector4&) const;
 	inline Vector4 sub(double, double, double, double) const;
 	Vector4 scalarMultiplication(double) const;
-	double getMagnitude() const;
+	double mag() const;
 	Vector4 normalize() const;
-	double getDotProduct(const Vector4&) const;
+	double dotProduct(const Vector4&) const;
 	Vector4 rotateVector(double) const;
 
 	Vector4 operator+(const Vector4& v) const { return Vector4(this->w + v.w, this->x + v.x, this->y + v.y, this->z + v.z); }
 	Vector4 operator-(const Vector4& v) const { return Vector4(this->w - v.w, this->x - v.x, this->y - v.y, this->z - v.z); }
 
 	// other useful methods that don't deal with math
-	const inline void display() const { cout << "X = " << x << ", Y = " << y << ", Z = " << z << endl; }; // PUT IN 'W'
+	const inline void display() const { cout << "[" << w << ", " << x << ", " << y << ", " << z << "]" << endl; };
 	inline void toString() const { cout << ""; }
 
 private:

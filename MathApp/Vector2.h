@@ -26,8 +26,8 @@ public:
 
 	// methods - accessors and mutators
 	inline double getX() const { return x; }
-	inline void setX(double xx) { x = xx; }
 	inline double getY() const { return y; }
+	inline void setX(double xx) { x = xx; }
 	inline void setY(double yy) { y = yy; }
 
 	// methods - math functions that will do cooler things
@@ -39,24 +39,24 @@ public:
 	inline Vector2 scalarMultiplication(double) const;
 	inline Vector2 normalize() const;
 	inline Vector2 perpendicular() const;
-	Vector2 lerp(Vector2&, double) const;
-	Vector2 rotateVector(double) const;
+	inline Vector2 lerp(Vector2&, double) const;
+	inline Vector2 rotateVector(double) const;
 
 	inline double max(const Vector2&) const;
 	inline double dotProduct(const Vector2&) const;
-	double mag() const;
-	double getAngleInDegrees() const;
-	double getAngleBetweenVector(Vector2&) const;
+	inline double mag() const;
+	inline double getAngleInDegrees() const;
+	inline double getAngleBetweenVector(Vector2&) const;
 	
-	bool isPerpendicularTo(const Vector2&) const;
+	inline bool isPerpendicularTo(const Vector2&) const;
 
 	// overloading operators
-	const Vector2 operator+(const Vector2& const v) const { return Vector2(this->x + v.x, this->y + v.y); }
-	const Vector2 operator-(const Vector2& const v) const { return Vector2(this->x - v.x, this->y - v.y); }
+	inline const Vector2 operator+(const Vector2& const v) const { return Vector2(this->x + v.x, this->y + v.y); }
+	inline const Vector2 operator-(const Vector2& const v) const { return Vector2(this->x - v.x, this->y - v.y); }
 
 	// other useful methods that don't deal with math
-	const inline void display() const { cout << "X = " << x << ", Y = " << y << endl; };
-	inline void toString() const { cout << ""; }
+	inline const void display() const { cout << "[" << x << ", " << y << "]" << endl; };
+	inline const void toString() const { cout << ""; }
 
 private:
 	// variables

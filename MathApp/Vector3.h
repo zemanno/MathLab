@@ -18,9 +18,9 @@ class Vector3
 {
 public:
 	// constructor(s) / destructor
-	Vector3() { u = Utility::getInstance(); };
-	Vector3(double xx, double yy, double zz) : x(xx), y(yy), z(zz) { u = Utility::getInstance(); };
-	~Vector3() { delete u; };
+	Vector3() {};
+	Vector3(double xx, double yy, double zz) : x(xx), y(yy), z(zz) {};
+	~Vector3() {};
 
 	// methods - accessors and mutators
 	inline double getX() const { return x; }
@@ -36,32 +36,30 @@ public:
 	inline Vector3 add(double, double, double) const;
 	inline Vector3 sub(const Vector3&) const;
 	inline Vector3 sub(double, double, double) const;
-	Vector3 scalarMultiplication(double) const;
-	Vector3 normalize() const;
-	Vector3 rotateVector(double) const;
-	Vector3 vectorSquared() const;
-	Vector3 toVector3(double) const;
-	Vector3 toVector3(const Vector2&) const;
-	Vector3 getUprightSpace(const Vector3&, const Vector3&, const Vector3&, const Vector3&, const Vector3&) const;
-	Vector3 getWorldSpace(const Vector3&, const Vector3&, const Vector3&, const Vector3&, const Vector3&) const;
-	Vector3 normalize() const;
-	Vector3 crossProduct(const Vector3&) const;
-
+	inline Vector3 crossProduct(const Vector3&) const;
+	inline Vector3 getUprightSpace(const Vector3&, const Vector3&, const Vector3&, const Vector3&, const Vector3&) const;
+	inline Vector3 getWorldSpace(const Vector3&, const Vector3&, const Vector3&, const Vector3&, const Vector3&) const;
+	inline Vector3 normalize() const;
+	inline Vector3 rotateVector(double) const;
+	inline Vector3 scalarMultiplication(double) const;
+	inline Vector3 toVector3(double) const;
+	inline Vector3 toVector3(const Vector2&) const;
+	inline Vector3 vectorSquared() const;
+	
 	inline double dotProduct(const Vector3& const) const;
-	double getAngleBetweenVector(Vector3&) const;
-	double mag() const;
-	double max() const;
+	inline double getAngleBetweenVector(Vector3&) const;
+	inline double mag() const;
+	inline double max() const;
 
-	const Vector3 operator+(const Vector3& const v) const { return Vector3(this->x + v.x, this->y + v.y, this->z + v.z); }
-	const Vector3 operator-(const Vector3& const v) const { return Vector3(this->x - v.x, this->y - v.y, this->z - v.z); }
+	inline const Vector3 operator+(const Vector3& const v) const { return Vector3(this->x + v.x, this->y + v.y, this->z + v.z); }
+	inline const Vector3 operator-(const Vector3& const v) const { return Vector3(this->x - v.x, this->y - v.y, this->z - v.z); }
 
 	// other useful methods that don't deal with math
-	const inline void display() const { cout << "X = " << x << ", Y = " << y << ", Z = " << z << endl; };
+	inline const void display() const { cout << "X = " << x << ", Y = " << y << ", Z = " << z << endl; };
 	inline void toString() const { cout << ""; }
 
 private:
 	// variables
-	Utility *u;
 	double x, y, z;
 };
 

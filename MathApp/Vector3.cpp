@@ -19,18 +19,12 @@ Vector3 Vector3::normalize() const  { return Vector3(this->x / mag(), this->y / 
 
 Vector3 Vector3::vectorSquared() const { return Vector3(this->x*this->x, this->y*this->y, this->z*this->z); }
 
-Vector3 Vector3::normalize() const { return Vector3(this->x / mag(), this->y / mag(), this->z / mag()); }
-
 Vector3 Vector3::toVector3(double d) const { return Vector3(d, 0, 0); }
 Vector3 Vector3::toVector3(const Vector2& v) const { return Vector3(v.getX(), v.getY(), 1); }
 
 double Vector3::dotProduct(const Vector3& v) const { return (this->x * v.x) + (this->y * v.y) + (this->z * v.z); }
 
-double Vector3::mag()const
-{
-	double sumx2y2z2 = pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2);
-	return sqrt(sumx2y2z2);
-}
+double Vector3::mag() const { return sqrt(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2)); }
 
 double Vector3::getAngleBetweenVector(Vector3& v)const
 {
